@@ -33,7 +33,7 @@ The system offers several license services:
    - **Street Test**  
    - Users can **Retake Tests** if they fail  
    - Users can create **Test Appointments** to schedule tests  
-8. **International License** – Issue an international license, available only for users who hold a **Class 3 (Ordinary Driving License)**  
+8. **International License** – Issue an international license, available only for users who hold a (Local Driving License) **Class 3**
 
 ### 4️⃣ License Classes
 License classification according to vehicle type:
@@ -53,9 +53,9 @@ License classification according to vehicle type:
 
 - **Login Form** – User authentication  
 - **Main Dashboard** – System overview  
-- **Manage People Form** – Manage people data  
-- **Users Form** – Manage system users  
+- **Manage People Form** – Manage people data
 - **License Forms** – Issue, renew, and replace licenses  
+- **Users Form** – Manage system users  
 - **Tests Forms** – Manage and schedule driving tests  
 - **International License Form** – Issue international licenses  
 
@@ -66,7 +66,7 @@ License classification according to vehicle type:
 - **Language:** C#  
 - **Framework:** .NET Framework / .NET Core  
 - **UI:** Windows Forms  
-- **Database:** SQL Server (Backup: `DVLD.bak`)  
+- **Database:** SQL Server 
 - **Data Access:** ADO.NET  
 
 **Tools:** Visual Studio, SQL Server Management Studio, Git & GitHub  
