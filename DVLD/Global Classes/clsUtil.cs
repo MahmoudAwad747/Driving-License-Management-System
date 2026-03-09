@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 
@@ -68,6 +69,18 @@ namespace DVLD.Global_Classes
 
             sourceFile = destinationFile;
             return true;
+        }
+
+        public static void LogException(string Message, EventLogEntryType Type)
+        {
+            string sourceName = "DVLDApp";
+
+            if(!EventLog.SourceExists(sourceName))
+            {
+                EventLog.CreateEventSource(sourceName, "Application");
+            }
+
+            EventLog.WriteEntry(sourceName, Message, Type);
         }
     }
 }

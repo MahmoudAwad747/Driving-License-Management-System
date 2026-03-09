@@ -2,6 +2,7 @@
 using DVLD.Properties;
 using DVLD_Buisness;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace DVLD.Login
@@ -46,13 +47,15 @@ namespace DVLD.Login
                 if(!User.IsActive)
                 {
                     txtUserName.Focus();
-                    MessageBox.Show("Your accound is not Active, Contact Admin.", "In Active Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Your account is not Active, Contact Admin.", "In Active Account", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    clsUtil.LogException("User is not Active.", EventLogEntryType.Warning);
                     return;
                 }
 
                 clsGlobal.CurrentUser = User;
                 this.Hide();
                 frmMain frm = new frmMain(this);
+                clsUtil.LogException("User is entring to the system.", EventLogEntryType.Information);
                 frm.ShowDialog();
                 this.Close();
             }
@@ -60,6 +63,7 @@ namespace DVLD.Login
             {
                 txtUserName.Focus();
                 MessageBox.Show("Invalid Username/Password.", "Wrong Credintials", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                clsUtil.LogException("User is not found (Invalid Username/Password).", EventLogEntryType.Error);
             }
         }
 
