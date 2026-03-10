@@ -1,4 +1,5 @@
-﻿using DVLD_Buisness;
+﻿using DVLD.Global_Classes;
+using DVLD_Buisness;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
@@ -46,7 +47,7 @@ namespace DVLD.User
             if(string.IsNullOrEmpty(txtCurrentPassword.Text.Trim()))
             {
                 e.Cancel = true;
-                errorProvider1.SetError(txtCurrentPassword, "Username cannot be blank");
+                errorProvider1.SetError(txtCurrentPassword, "Password cannot be blank");
                 return;
             }
             else
@@ -54,7 +55,7 @@ namespace DVLD.User
                 errorProvider1.SetError(txtCurrentPassword, null);
             }
 
-            if(_User.Password != txtCurrentPassword.Text)
+            if(_User.Password != clsGlobal.ComputeHash(txtCurrentPassword.Text.Trim()))
             {
                 e.Cancel = true;
                 errorProvider1.SetError(txtCurrentPassword, "Current password is wrong!");
@@ -101,7 +102,8 @@ namespace DVLD.User
                 return;
             }
 
-            _User.Password = txtNewPassword.Text;
+            string hashPassword = clsGlobal.ComputeHash(txtNewPassword.Text);
+            _User.Password = hashPassword;
 
             if (_User.Save())
             {

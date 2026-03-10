@@ -1,6 +1,8 @@
 ﻿using DVLD_Buisness;
 using Microsoft.Win32;
 using System;
+using System.Security.Cryptography;
+using System.Text;
 
 
 
@@ -62,6 +64,16 @@ namespace DVLD.Global_Classes
 
             return false;
 
+        }
+
+        public static string ComputeHash(string Data)
+        {
+            using (SHA256 sha256 = SHA256.Create()) 
+            {
+                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(Data));
+
+                return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
+            }
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using DVLD.Global_Classes;
-using DVLD.Properties;
 using DVLD_Buisness;
 using System;
 using System.Diagnostics;
@@ -30,7 +29,8 @@ namespace DVLD.Login
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            clsUser User = clsUser.FindByUserNameAndPassword(txtUserName.Text.Trim(), txtPassword.Text.Trim());
+            string hashPassword = clsGlobal.ComputeHash(txtPassword.Text.Trim());
+            clsUser User = clsUser.FindByUserNameAndPassword(txtUserName.Text.Trim(), hashPassword);
 
             if(User != null)
             {
@@ -72,14 +72,9 @@ namespace DVLD.Login
             Application.Exit();
         }
 
-        private void btnShowPassword_Click(object sender, EventArgs e)
+        private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
         {
-            txtPassword.UseSystemPasswordChar = !txtPassword.UseSystemPasswordChar;
-
-            if (txtPassword.UseSystemPasswordChar)
-                btnShowPassword.Image = Resources.CloseEye32;
-            else
-                btnShowPassword.Image = Resources.OpenEye32;
+            txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
     }
 }

@@ -35,6 +35,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.chkShowPassword = new System.Windows.Forms.CheckBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.chkRemembrMe = new System.Windows.Forms.CheckBox();
@@ -45,7 +46,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnShowPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -75,7 +75,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
-            this.splitContainer1.Panel2.Controls.Add(this.btnShowPassword);
+            this.splitContainer1.Panel2.Controls.Add(this.chkShowPassword);
             this.splitContainer1.Panel2.Controls.Add(this.btnClose);
             this.splitContainer1.Panel2.Controls.Add(this.btnLogin);
             this.splitContainer1.Panel2.Controls.Add(this.chkRemembrMe);
@@ -155,6 +155,18 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // chkShowPassword
+            // 
+            this.chkShowPassword.AutoSize = true;
+            this.chkShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkShowPassword.Location = new System.Drawing.Point(530, 255);
+            this.chkShowPassword.Name = "chkShowPassword";
+            this.chkShowPassword.Size = new System.Drawing.Size(138, 20);
+            this.chkShowPassword.TabIndex = 11;
+            this.chkShowPassword.Text = "Show Password";
+            this.chkShowPassword.UseVisualStyleBackColor = true;
+            this.chkShowPassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
             // btnClose
             // 
@@ -264,16 +276,6 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "Login to your account";
             // 
-            // btnShowPassword
-            // 
-            this.btnShowPassword.Image = global::DVLD.Properties.Resources.CloseEye32;
-            this.btnShowPassword.Location = new System.Drawing.Point(501, 252);
-            this.btnShowPassword.Name = "btnShowPassword";
-            this.btnShowPassword.Size = new System.Drawing.Size(61, 33);
-            this.btnShowPassword.TabIndex = 10;
-            this.btnShowPassword.UseVisualStyleBackColor = true;
-            this.btnShowPassword.Click += new System.EventHandler(this.btnShowPassword_Click);
-            // 
             // frmLogin
             // 
             this.AcceptButton = this.btnLogin;
@@ -319,6 +321,6 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.CheckBox chkRemembrMe;
-        private System.Windows.Forms.Button btnShowPassword;
+        private System.Windows.Forms.CheckBox chkShowPassword;
     }
 }
